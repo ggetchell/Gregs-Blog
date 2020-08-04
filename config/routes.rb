@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root to: "posts#index"
 
-  get '/posts', to: "posts#index"
-  get '/posts/new', to: "posts#index"
-  get '/posts/:id', to: "posts#index"
+  get '/posts', to: "homes#index"
+  get '/posts/new', to: "homes#index"
+  get '/posts/:id', to: "homes#index"
 
   resources :posts, only: [:index]
 

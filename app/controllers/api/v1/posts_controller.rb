@@ -1,11 +1,11 @@
 class Api::V1::PostsController < ApiController
 
     def index
-        @posts = Post.all 
+        render json: Post.all 
     end
 
     def new 
-        @post = Post.new
+        render json: Post.new
     end
 
     def create 
