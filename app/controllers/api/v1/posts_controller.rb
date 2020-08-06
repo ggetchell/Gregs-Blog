@@ -1,59 +1,60 @@
 class Api::V1::PostsController < ApiController
 
-    def index
-        render json: Post.all 
+    before_action :find_post, only: [:edit, :update, :show, :delete]
+
+  
+  def index
+    render json: Post.all
+  end
+
+  
+  def new
+    render json: Post.new
+  end
+
+
+  def create
+    new_post = Post.new(product_params)
+    if new_post.save
+      render json: new_post
+    else
+      render json: {errors: new_post.errors.full_messages}
     end
+  end
 
-    def new 
-        render json: Post.new
+  def show
+    post = Post.find(params[:id])
+    render json: post, serializer: PostShowSerializer
+  end
+
+  
+  def edit
+  end
+
+  
+  def update
+    update_post = Post.update(post_params)
+    if update_post.save
+      render json: update_post
+    else
+      render json: {errors: update_post.errors.full_messages}
     end
+  end
 
-    def create 
-        @post = Post.new
-        if @post.save(post_params)
-            flash[:notice] = "Successfully created Post."
-            redirect_to post_path(@post)
-        else
-            flash[:alert] = "Error creating new post!"
-            render :new
-        end
-    end
 
-    def edit
+  def destroy
+    @post = Post.find(destroy_post_params)
+    @post.destroy
+  end
 
-    end
+  private
 
-    def update
-        if @post.update_attributes(post_params)
-            flash[:notice] = "Successfully updated post."
-            redirect_to post_path(@post)
-        else
-            flash[:alert] = "Error updating post!"
-        end
-    end
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 
-    def show 
-
-    end
-
-    def destroy 
-        if @post.destroy
-            flash[:notice] = "Successfully deleted post."
-            redirect_to posts_path
-        else
-            f;ash[:alert] = "Error updating post!"
-        end
-    end
-
-    private
-
-    def post_params 
-        params.require(:post).permit(:title, :body)
-    end
-
-    def find_post 
-        @post = Post.find(params[:id])
-    end
+  def find_post
+    post = Post.find(params[:id])
+  end
 
 end
-    

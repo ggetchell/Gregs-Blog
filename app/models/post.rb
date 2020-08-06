@@ -2,5 +2,5 @@ class Post < ApplicationRecord
     validates :title, presence: true
     validates :body, presence: true
 
-    has_many :posts
+    has_many :comments
 end
