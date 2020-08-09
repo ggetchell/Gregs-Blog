@@ -57,3 +57,4 @@ gem 'simple_form'
 gem 'bootstrap-sass' 
 gem 'react-rails'
 gem 'ckeditor', '~> 4.1'
+gem "bulma-rails", "~> 0.9.0"

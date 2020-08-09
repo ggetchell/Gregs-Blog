@@ -1,5 +1,5 @@
 class PostShowSerializer < ActiveModel::Serializer 
     attributes :id, :title, :body
 
-    has_many :reviews
+    has_many :comments
 end
