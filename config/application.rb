@@ -29,5 +29,7 @@ module ScotchBlog
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.assets.initialize_on_predompile = false
   end
 end
