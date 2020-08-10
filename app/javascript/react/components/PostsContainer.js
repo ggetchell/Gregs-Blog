@@ -35,8 +35,8 @@ const PostsIndexContainer = (props) => {
 
   return (
     <div>
-      <h1 className="title mt-4 pt-4 pl-4 center has-text-light">Posts</h1>
-      <div className="container">
+      <h1 className="">Posts</h1>
+      <div className="call">
         <div className="columns is-multiline features">{postTiles}</div>
       </div>
     </div>

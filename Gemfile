@@ -54,7 +54,7 @@ gem 'devise'
 gem 'foundation-rails', '~> 6.5'
 gem 'webpacker', '~> 3.3'
 gem 'simple_form'
-gem 'bootstrap-sass' 
+# gem 'bootstrap-sass' 
 gem 'react-rails'
 gem 'ckeditor', '~> 4.1'
 gem "bulma-rails", "~> 0.9.0"
