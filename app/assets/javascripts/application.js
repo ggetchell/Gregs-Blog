@@ -16,6 +16,7 @@
 //= require foundation
 //= require bootstrap-sprockets
 //= require ckeditor/init
- require_tree.$(function() { 
+//= require_tree .
+  $(function() { 
    $(document).foundation(); 
   });
